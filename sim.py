@@ -190,5 +190,9 @@ def update_simulation(n_clicks, n_intervals, mode, path_memory):
     travel_path_text = " → ".join(visited_places)
     return False, fig, travel_path_text, path_memory
 
+import os
+
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(debug=False, host="0.0.0.0", port=port)
+    server = app.server
